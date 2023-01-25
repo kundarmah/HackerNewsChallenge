@@ -12,7 +12,7 @@ interface StoryProps {
   authorKarma: number;
 }
 
-const StoryCard: ListRenderItem<StoryProps> = ({item}: {item: StoryProps}) => {
+const StoryCard: ListRenderItem<StoryProps> = ({item}) => {
   //Since some entries has url some has not
   function getDomainName(url: string): string | null {
     const match = url.match(/^(?:https?:\/\/)?(?:www\.)?([^/]+)/i);
