@@ -1,6 +1,6 @@
 import {ListRenderItem, StyleSheet, View} from 'react-native';
 import React from 'react';
-import Title from '../Title';
+import Text from '../Text';
 import {colors} from '../../utils/colors';
 
 interface StoryProps {
@@ -24,21 +24,18 @@ const StoryCard: ListRenderItem<StoryProps> = ({item}: {item: StoryProps}) => {
   return (
     <View style={styles.container}>
       <View style={styles.titleCont}>
-        <Title style={styles.titleText} text={item?.title} />
+        <Text style={styles.titleText} text={item?.title} />
       </View>
       {item?.url && (
-        <Title
+        <Text
           style={[styles.descText, styles.url]}
           text={`(${getDomainName(item?.url)})`}
         />
       )}
       <View style={styles.desc}>
-        <Title style={styles.descText} text={`${item?.score} points `} />
-        <Title style={styles.descText} text={`by ${item?.by} `} />
-        <Title
-          style={styles.descText}
-          text={`[ ${item?.authorKarma} karma ]`}
-        />
+        <Text style={styles.descText} text={`${item?.score} points `} />
+        <Text style={styles.descText} text={`by ${item?.by} `} />
+        <Text style={styles.descText} text={`[ ${item?.authorKarma} karma ]`} />
       </View>
     </View>
   );
