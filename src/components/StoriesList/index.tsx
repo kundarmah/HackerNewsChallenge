@@ -10,7 +10,7 @@ import {
 import {colors} from '../../utils/colors';
 import {screenWidth} from '../../utils/screen';
 
-const StoriesList = () => {
+const StoriesList: React.FC = () => {
   const dispatch = useAppDispatch();
   const storiesState = useAppSelector(selectAll) as StoriesState;
 

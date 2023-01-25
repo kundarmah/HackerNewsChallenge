@@ -2,7 +2,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import {colors} from '../../utils/colors';
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.logoCont}>

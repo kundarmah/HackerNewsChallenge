@@ -6,7 +6,7 @@ type Props = {
   style?: any;
 };
 
-const Text = ({text, style}: Props) => {
+const Text: React.FC<Props> = ({text, style}) => {
   return <TextRN style={style}>{text}</TextRN>;
 };
 
