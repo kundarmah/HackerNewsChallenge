@@ -8,8 +8,8 @@ interface StoryProps {
   title: string;
   url: string;
   score: number;
-  by: number;
-  authorKarma: string;
+  by: string;
+  authorKarma: number;
 }
 
 const StoryCard: ListRenderItem<StoryProps> = ({item}: {item: StoryProps}) => {
