@@ -2,6 +2,7 @@ import {ListRenderItem, StyleSheet, View} from 'react-native';
 import React from 'react';
 import Text from '../Text';
 import {colors} from '../../utils/colors';
+import moment from 'moment';
 
 interface StoryProps {
   id: number;
@@ -9,6 +10,7 @@ interface StoryProps {
   url: string;
   score: number;
   by: string;
+  time: number;
   authorKarma: number;
 }
 
@@ -37,6 +39,10 @@ const StoryCard: ListRenderItem<StoryProps> = ({item}) => {
         <Text style={styles.descText} text={`${item?.score} points `} />
         <Text style={styles.descText} text={`by ${item?.by} `} />
         <Text style={styles.descText} text={`[ ${item?.authorKarma} karma ]`} />
+        <Text
+          style={styles.descText}
+          text={` • ${moment.unix(item?.time).fromNow()}`}
+        />
       </View>
     </View>
   );
