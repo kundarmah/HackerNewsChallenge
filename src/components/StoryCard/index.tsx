@@ -3,6 +3,7 @@ import React from 'react';
 import Text from '../Text';
 import {colors} from '../../utils/colors';
 import moment from 'moment';
+import Karma from '../Karma';
 
 interface StoryProps {
   id: number;
@@ -38,7 +39,7 @@ const StoryCard: ListRenderItem<StoryProps> = ({item}) => {
       <View style={styles.desc}>
         <Text style={styles.descText} text={`${item?.score} points `} />
         <Text style={styles.descText} text={`by ${item?.by} `} />
-        <Text style={styles.descText} text={`[ ${item?.authorKarma} karma ]`} />
+        <Karma id={item?.by} />
         <Text
           style={styles.descText}
           text={` • ${moment.unix(item?.time).fromNow()}`}

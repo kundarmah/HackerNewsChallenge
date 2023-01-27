@@ -14,7 +14,7 @@ interface Story {
 
 interface User {
   id: number;
-  karma: number;
+  karma: undefined;
 }
 
 export interface StoriesState {
@@ -29,11 +29,11 @@ async function fetchStory(id: number): Promise<Story> {
   if (!userId) {
     return Promise.reject('User ID not found');
   }
-  const karmaScore = await fetchUserId(userId);
-  return {...response.data, authorKarma: karmaScore?.karma};
+  // const karmaScore = await fetchUserId(userId);
+  return {...response.data};
 }
 
-async function fetchUserId(id: number): Promise<User> {
+export async function fetchUserId(id: string): Promise<User> {
   const response = await api.get(`/user/${id}.json`);
   if (!response.data) {
     return Promise.reject('User data not found');
