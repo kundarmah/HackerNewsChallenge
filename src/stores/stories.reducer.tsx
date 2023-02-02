@@ -47,7 +47,7 @@ export const getStories = createAsyncThunk('stories/getStories', async () => {
   if (!storyIds) {
     return Promise.reject('Story IDs not found');
   }
-  const rand10Stories = _.sampleSize(storyIds, 10);
+  const rand10Stories = _.sampleSize(storyIds, 30);
   const stories = await Promise.all(
     rand10Stories.map((i: number) => fetchStory(i)),
   );

@@ -1,5 +1,5 @@
 import React, {Suspense, useEffect, useState} from 'react';
-import {Text, ActivityIndicator, StyleSheet} from 'react-native';
+import {Text, StyleSheet, View} from 'react-native';
 import {fetchUserId} from '../../stores/stories.reducer';
 import {colors} from '../../utils/colors';
 
@@ -9,18 +9,23 @@ type Props = {
 
 const Karma = ({id}: Props) => {
   const [karma, setKarma] = useState();
+  const [refreshing, setRefreshing] = useState(true);
+
   useEffect(() => {
     async function getKarma() {
       const resp = await fetchUserId(id);
       setKarma(resp.karma);
+      setRefreshing(false);
     }
 
     getKarma();
   }, [id]);
 
   return (
-    <Suspense fallback={<ActivityIndicator />}>
-      <Text style={styles.descText}>{`[ ${karma || ''} karma ] `}</Text>
+    <Suspense fallback={<Text>Loading...</Text>}>
+      <View style={styles.container}>
+        <Text style={styles.descText}>{`[ ${karma || ''} karma ] `}</Text>
+      </View>
     </Suspense>
   );
 };
@@ -28,8 +33,12 @@ const Karma = ({id}: Props) => {
 const styles = StyleSheet.create({
   descText: {
     color: colors.text,
-    fontSize: 10,
+    fontSize: 12,
+  },
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
-export default Karma;
+export default React.memo(Karma);

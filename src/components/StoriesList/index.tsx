@@ -24,6 +24,7 @@ const StoriesList: React.FC = () => {
         <FlatList
           style={styles.flatlist}
           data={storiesState.data}
+          maxToRenderPerBatch={10}
           keyExtractor={(item, index) => `${item?.id}${index}`}
           renderItem={StoryCard}
         />

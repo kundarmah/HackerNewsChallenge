@@ -2,7 +2,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import {colors} from '../../utils/colors';
 
-const Header: React.FC = () => {
+const index: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.logoCont}>
@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default index;
 
 const styles = StyleSheet.create({
   container: {
